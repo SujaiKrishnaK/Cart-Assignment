@@ -1,0 +1,44 @@
+<div class="container">
+    <div style="height: 60px;margin-top: 20px;border-radius: 5px;">
+        <div class="row">
+            <div class="col-8">
+                <div>
+                    <div class="lead display-8" style="font-weight:100;">Your Cart</div>
+                </div>
+            </div>
+            <div class="col-4">
+                <mat-icon matBadge="{{selectedProducts.length}}" matBadgeColor="success" id="carticon">
+                    <span class="material-icons">
+                        shopping_cart
+                        </span>
+                </mat-icon>
+            </div>
+        </div>
+    </div>
+    <hr>
+       <mat-card *ngFor="let prod of selectedProducts;let i = index" style="background-color:#FCD73F;">
+        <span (click)="deleteItem(prod)" class="material-icons" style="float: right;">
+            cancel
+         </span>
+            <div style="display: inline-block;">
+                <div class="container">
+                    <div class="row" *ngIf="selectedProducts.length > 0">
+                        <div class="col-4">
+                         {{i+1}}.  <img src="{{prod.imgUrl}}" height="100" width="100"  style="border-radius: 50%;border:1px solid lawngreen "alt="">
+                        </div>
+                        <div class="col-3">
+                            <p>&#x20B9; {{prod.price}}</p>
+                        </div>
+                        <div class="col-3">
+                            <p>{{prod.name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+         </mat-card>
+         <div *ngIf="selectedProducts.length == 0">
+             <h3>
+                 There are no items in your cart.
+             </h3>
+         </div>
+</div>

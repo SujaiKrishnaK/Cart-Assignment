@@ -1,0 +1,38 @@
+<div style="height:60px">
+<h5 class="lead display-4">Products</h5>    
+</div>
+<form class="example-form">
+    <mat-form-field class="example-full-width" style="width: 80%;"appearance="legacy" >
+      <mat-label>Search Products</mat-label>
+      <input type="text" matInput placeholder="brush" autocomplete="off">
+      <mat-icon matSuffix><span class="material-icons">
+        search
+        </span></mat-icon>
+    </mat-form-field>
+  </form>
+  <div class="container">
+    <div class="row">
+        <div *ngFor="let item of products" class="col-lg-4">
+          <mat-card class="example-card" style="background-color:#cbcfda" >
+              <mat-card-header >
+                <mat-card-title>{{item.name}}</mat-card-title>
+              </mat-card-header>
+              <img mat-card-image src="{{item.imgUrl}}" height="200" alt="Photo">
+              <mat-card-content>
+              </mat-card-content>
+              <h6 style="display: block;display: inline">
+                Price: &#x20B9; {{item.price}}
+            </h6> 
+            <span style="float: right;">
+                <button (click)="addToCart(item)" matTooltip="Add to Cart" color="primary" mat-button>
+                    <mat-icon >
+                    <span class="material-icons">
+                        add_shopping_cart
+                        </span>
+                  </mat-icon></button>
+            </span>
+            </mat-card>
+        </div>
+    </div>
+     
+  </div>
