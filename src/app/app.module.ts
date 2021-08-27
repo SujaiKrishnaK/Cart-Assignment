@@ -16,7 +16,7 @@ import { AngularSplitModule } from 'angular-split';
     BrowserAnimationsModule,
     MaterialModule,FormsModule,
     ProductCartModule,
-    AngularSplitModule
+    AngularSplitModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

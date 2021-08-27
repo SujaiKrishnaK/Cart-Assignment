@@ -4,7 +4,7 @@
 <form class="example-form">
     <mat-form-field class="example-full-width" style="width: 80%;"appearance="legacy" >
       <mat-label>Search Products</mat-label>
-      <input type="text" matInput placeholder="brush" autocomplete="off">
+      <input type="text" matInput placeholder="Shoe" name="searchbar" [(ngModel)]="searchVal" (ngModelChange)="filterUpdate.next($event)" autocomplete="off">
       <mat-icon matSuffix><span class="material-icons">
         search
         </span></mat-icon>
@@ -12,7 +12,7 @@
   </form>
   <div class="container">
     <div class="row">
-        <div *ngFor="let item of products" class="col-lg-4">
+        <div *ngFor="let item of filteredProducts" class="col-lg-4">
           <mat-card class="example-card" style="background-color:#cbcfda" >
               <mat-card-header >
                 <mat-card-title>{{item.name}}</mat-card-title>
