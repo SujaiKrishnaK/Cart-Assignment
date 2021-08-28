@@ -4,43 +4,35 @@
           cancel
           </span>
           <mat-nav-list class="mat-list-caption">
-            <mat-list-item>
-              Products
-            </mat-list-item>
-            <mat-list-item>
-              abcd
-            </mat-list-item>
-            <mat-list-item>
-              xyz
-            </mat-list-item>
-            <mat-list-item>
-              mnop
-            </mat-list-item>
-            <mat-list-item>
-             qwert
-            </mat-list-item>
+              <nav>
+                <a class="button" mat-list-item [routerLinkActive]="'active'" [routerLink]="['/products']">Products</a> 
+              </nav>
+              <nav>
+                <a class="button" mat-list-item [routerLinkActive]="'active'" [routerLink]="['/cart']">Cart</a>
+              </nav>
           </mat-nav-list>
-
     </mat-sidenav>
     <mat-sidenav-content>
       <div class="container" style="border-bottom: 1px solid whitesmoke;">
         <div class="row">
           <div class="col-3">
             <div class="mt-2">
-              <button class="ham-btn" mat-flat-button (click)="opened = !opened"> <mat-icon><span class="material-icons">
-                menu
+              <button mat-icon-button class="ham-btn" [routerLinkActive]="'active'" [routerLink]="['/products']" > <mat-icon><span class="material-icons-outlined">
+                view_list
                 </span>
               </mat-icon> 
             </button>
-            <h6 class="mt-1">Menu Bar</h6>
+            <h6 class="mt-1">Products</h6>
             </div>
           <div class="mt-2">
-            <button class="ham-btn" mat-flat-button (click)="showCart()"> <mat-icon><span class="material-icons">
+            <button class="ham-btn" mat-icon-button
+            [routerLinkActive]="'active'" [routerLink]="['/cart']"
+            (click)="showCart()"> <mat-icon matBadge="{{cS.totalSelectedProducts | async}}" ><span class="material-icons">
               shopping_cart
               </span>
             </mat-icon> 
           </button>
-          <h6 class="mt-1">Show/Hide Cart</h6>
+          <h6 class="mt-1">Show Cart</h6>
           </div>
           </div>
           <div class="col-9">
@@ -50,7 +42,7 @@
           </div>
         </div>
       </div>
-     <div class="split">
+     <!-- <div class="split">
       <as-split direction="horizontal" disabled="true">
         <as-split-area [size]="70" style="padding-right: 15px">
           <app-products>
@@ -60,6 +52,7 @@
           <app-cart></app-cart>
         </as-split-area>
       </as-split>
-      </div>
+      </div> -->
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

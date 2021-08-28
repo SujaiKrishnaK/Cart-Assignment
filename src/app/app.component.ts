@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'cart';
   cartVisibility:boolean = true;
 
-  constructor(){
+  constructor(public cS: CommonService){
 
   }
 

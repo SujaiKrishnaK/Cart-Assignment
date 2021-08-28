@@ -13,20 +13,19 @@ export class CartComponent implements OnInit {
     for(let i=1;i<=10;i++){
       this.quantity.push(i);
     }
-    this.cS.selectedProduct.subscribe((prod) => {
-      this.selectedProducts.push(prod);
-      this.selectedProducts = [... new Set(this.selectedProducts)];
-      this.cS.totalSelectedProducts.next(this.selectedProducts.length);
-    })
    }
 
   ngOnInit(): void {
+    this.selectedProducts = this.cS.getProducts();
+    console.log(this.selectedProducts,'cartcomp');
+    
   }
+
   deleteItem(item){
     this.selectedProducts = this.selectedProducts.filter(product => 
       product.name != item.name
     )
-    console.log(this.selectedProducts);
+    this.cS.totalSelectedProducts.next(this.selectedProducts.length);
     
   }
 
